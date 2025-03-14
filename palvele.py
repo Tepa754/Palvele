@@ -8,6 +8,7 @@ def app(environ, respond):
     polku = environ ["PATH_INFO"]
     salanimi = polku.replace("a","aca").replace("i","hani").replace("n", "entiiäenää")
     yield "<p>moikka</p>".encode('utf-8')
+    yield "<form method=GET><input type=button value=Derivoi></form>".encode("utf-8")
     yield (f"Saianen nimesi on: <b>{salanimi}</b>".encode('utf-8'))
     #for key in environ:
         #yield("%s: %s\n" % (key, environ[key])).encode('utf-8')
@@ -16,3 +17,4 @@ def app(environ, respond):
 if __name__ == '__main__':
 	with make_server("localhost", 8000, app) as server: 
 		server.serve_forever()
+        
